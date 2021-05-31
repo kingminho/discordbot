@@ -1,6 +1,7 @@
 import hcskr
 import discord
 from discord.ext import commands, tasks
+import os
 
 bot = commands.Bot(command_prefix="!")
 
@@ -15,6 +16,6 @@ async def 자가진단(ctx, name, birth, area, school, level, password):
     else:
         hcskr.selfcheck(name,birth,area,school,level,password)
         await ctx.send("자가진단 참여 완료")
-
-
-bot.run("ODQyMDU4MzM1OTE4NDg5NjEw.YJvx7w.HgKeOlU7hjNRNAliyA88v44cxvQ")
+        
+access_token = os.environ['BOT_TOKEN']
+bot.run(access_token)
